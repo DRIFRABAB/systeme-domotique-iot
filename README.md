@@ -8,11 +8,6 @@ Ce projet propose une solution domotique complète intégrant :
 - Contrôle manuel : Interface web pour contrôler individuellement chaque dispositif
 - Communication MQTT : Architecture distribuée et scalable
 
-# Démonstration
-
- Capteurs          →  ESP32  →  MQTT Broker  →  Node-RED  →   Dashboard Web
- (DHT22, LDR, PIR)    WiFi      HiveMQ          Flows         Interface Utilisateur
-
 # Fonctionnalités
 ***Mode Automatique***
 
