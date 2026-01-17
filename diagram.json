@@ -1,0 +1,77 @@
+{
+  "version": 1,
+  "author": "Rabab Drif",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 0, "left": 0, "attrs": {} },
+    {
+      "type": "wokwi-dht22",
+      "id": "dht22",
+      "top": -9.3,
+      "left": -322.2,
+      "attrs": { "temperature": "25" }
+    },
+    {
+      "type": "wokwi-photoresistor-sensor",
+      "id": "ldr1",
+      "top": -102.4,
+      "left": -335.2,
+      "attrs": {}
+    },
+    { "type": "wokwi-pir-motion-sensor", "id": "pir1", "top": 234.4, "left": 223.02, "attrs": {} },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": 18,
+      "left": 189,
+      "rotate": 90,
+      "attrs": { "color": "blue" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led2",
+      "top": -49.2,
+      "left": 189,
+      "rotate": 90,
+      "attrs": { "color": "orange" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led3",
+      "top": -135.6,
+      "left": 189,
+      "rotate": 90,
+      "attrs": { "color": "magenta" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led4",
+      "top": 75.6,
+      "left": 189,
+      "rotate": 90,
+      "attrs": { "color": "yellow" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "ldr1:VCC", "esp:3V3", "red", [ "v96", "h37.6" ] ],
+    [ "ldr1:GND", "esp:GND.2", "violet", [ "v28.4", "h153.6", "v76.8" ] ],
+    [ "esp:GND.1", "pir1:GND", "black", [ "v0" ] ],
+    [ "pir1:VCC", "esp:3V3", "red", [ "v0" ] ],
+    [ "pir1:OUT", "esp:32", "green", [ "v-172.8", "h-201.4" ] ],
+    [ "led3:A", "esp:26", "magenta", [ "h-198.8", "v223.2" ] ],
+    [ "led2:A", "esp:25", "orange", [ "h-211.2", "v124.8" ] ],
+    [ "led1:A", "esp:33", "blue", [ "h-230.4", "v38.4" ] ],
+    [ "led4:A", "esp:27", "gold", [ "h-201.6", "v19.2" ] ],
+    [ "esp:GND.3", "led4:C", "black", [ "h91.24", "v9.6" ] ],
+    [ "esp:GND.2", "led1:C", "black", [ "v9.6", "h91.24" ] ],
+    [ "esp:GND.2", "led2:C", "black", [ "v-57.6", "h91.24" ] ],
+    [ "esp:GND.3", "led3:C", "black", [ "h4.84", "v-201.6" ] ],
+    [ "ldr1:AO", "esp:35", "gray", [ "h163.2", "v133.7" ] ],
+    [ "dht22:GND", "esp:GND.2", "black", [ "v-76.8", "h384" ] ],
+    [ "esp:3V3", "dht22:VCC", "red", [ "h-311.81", "v76.8" ] ],
+    [ "esp:15", "dht22:SDA", "green", [ "h-302.21", "v38.4" ] ]
+  ],
+  "dependencies": {}
+}
